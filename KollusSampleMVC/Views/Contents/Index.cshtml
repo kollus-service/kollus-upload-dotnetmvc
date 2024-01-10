@@ -1,0 +1,87 @@
+﻿@model IEnumerable<KollusSampleMVC.Models.Content>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Medias</h1>
+<p>you can get a media link when you click MediaLink tag</p>
+
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadFileKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediaContentKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChannelKey)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.UploadDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TranscodingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChannelAddedDate)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadFileKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediaContentKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelKey)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranscodingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelAddedDate)
+            </td> *@
+            <td>
+                    <!--<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |-->
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a href="#" id="beforeMediaLink_@item.Id" onclick="getMediaLink(@item.Id, '@item.MediaContentKey')">MediaLink</a>
+                    <a href="#" id="afterMediaLink_@item.Id" style="display: none"></a>
+                    @* <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script>
+    async function getMediaLink(id, mediaContentKey) {
+        const response = await fetch("https://localhost:7094/api/get-medialink?mediaContentKey=" + mediaContentKey);
+        const jsonData = await response.json();
+        let beforeMediaLink = document.getElementById("beforeMediaLink_" + id);
+        beforeMediaLink.style.display = "none"
+        let afterMediaLink = document.getElementById("afterMediaLink_" + id);
+        afterMediaLink.href = jsonData.url
+        afterMediaLink.innerText = jsonData.url
+        afterMediaLink.style.display = "block"
+    }
+</script>

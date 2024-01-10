@@ -1,0 +1,64 @@
+﻿@model KollusSampleMVC.Models.Content
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Content</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UploadFileKey" class="control-label"></label>
+                <input asp-for="UploadFileKey" class="form-control" />
+                <span asp-validation-for="UploadFileKey" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaContentKey" class="control-label"></label>
+                <input asp-for="MediaContentKey" class="form-control" />
+                <span asp-validation-for="MediaContentKey" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChannelKey" class="control-label"></label>
+                <input asp-for="ChannelKey" class="form-control" />
+                <span asp-validation-for="ChannelKey" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UploadDate" class="control-label"></label>
+                <input asp-for="UploadDate" class="form-control" />
+                <span asp-validation-for="UploadDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TranscodingDate" class="control-label"></label>
+                <input asp-for="TranscodingDate" class="form-control" />
+                <span asp-validation-for="TranscodingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChannelAddedDate" class="control-label"></label>
+                <input asp-for="ChannelAddedDate" class="form-control" />
+                <span asp-validation-for="ChannelAddedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

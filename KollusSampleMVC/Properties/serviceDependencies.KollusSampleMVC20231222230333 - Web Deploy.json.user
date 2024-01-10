@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-12-23T09:04:09.3431977Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "84f41e2c-cab3-457a-81b1-451d005ac7ae"
+    },
+    "KollusSampleMVC20231222230333.resourceGroupLocation": {
+      "Name": "KollusSampleMVC20231222230333.resourceGroupLocation",
+      "Type": null,
+      "Value": "eastus"
+    },
+    "KollusSampleMVC20231222230333.subscriptionId": {
+      "Name": "KollusSampleMVC20231222230333.subscriptionId",
+      "Type": "subscription",
+      "Value": "84f41e2c-cab3-457a-81b1-451d005ac7ae"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "KollusSampleMVC20231222230333ResourceGroup"
+    },
+    "KollusSampleMVC20231222230333.resourceName": {
+      "Name": "KollusSampleMVC20231222230333.resourceName",
+      "Type": null,
+      "Value": "KollusSampleMVC20231222230333"
+    },
+    "KollusSampleMVC20231222230333.resourceGroupName": {
+      "Name": "KollusSampleMVC20231222230333.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "KollusSampleMVC20231222230333ResourceGroup"
+    }
+  }
+}

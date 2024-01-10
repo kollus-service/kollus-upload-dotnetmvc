@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h4>Environment</h4>
+    <p>.NET 8.0 MVC <br/>
+        Azure database <br />
+        publicshed by Azure
+    </p>
+    <h4>Manage</h4>
+    <p>
+        You can try to call APIs here to set your Kollus account before upload such as create category, channel, etc...
+    </p>
+    <h4>Upload</h4>
+    <p>
+        You can upload your media here with a category key you made.
+    </p>
+    <h4>Contents</h4>
+    <p>
+        You can check medias you uploaded here.
+    </p>
+
+    <h4>Before build the project</h4>
+    <p>
+        Please put your information <br/>
+
+        You can get your AccessToken, SecretKey, CustomKey : https://kr.kollus.com/media/setting/service_account  <br />
+
+        1. Controllers/manage/ManageController.cs <br/>
+        - AccessToken <br/>
+        <img src="~/img/screenshot-managecontroller.png" />
+        <br/>
+        <br/>
+        2. Views/Home/Upload.cshtml <br />
+        - AccessToken <br />
+        - CategoryKey <br/>
+        <img src="~/img/screenshot-upload.png" />
+        <br/>
+        <br/>
+        3. Util/KollusPlayer.cs <br />
+        - SecretKey<br/>
+        - CustomKey<br/>
+        <img src="~/img/screenshot-player.png" />
+    </p>
+</div>

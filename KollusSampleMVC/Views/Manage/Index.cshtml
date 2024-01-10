@@ -1,0 +1,55 @@
+﻿@model KollusSampleMVC.Models.ManageFormModel
+
+@{
+    ViewData["Title"] = "Manage Page";
+}
+
+<h3>Call API to set your account</h3>
+
+<div class="container-sm">
+    <h5>🧵Create a category</h5>
+    <form asp-action="AddCategory" asp-model="ManageFormModel">
+        <div class="mb-3">
+            <label for="Name" class="form-label">New Category Name</label>
+            <input asp-for="Name" />
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div class="container-sm">
+    <h5>🧵Create a channel</h5>
+    <form asp-action="AddChannel" asp-model="ManageFormModel">
+        <div class="mb-3">
+            <label for="Name" class="form-label">New Channel Name</label>
+            <input asp-for="Name" />
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div class="container-sm">
+    <h5>🧵Attach channel to category</h5>
+    <form asp-action="AttachChannelToCategory" asp-model="ManageFormModel">
+        <div class="mb-3">
+            <label class="form-label">Category Key</label>
+            <input asp-for="CategoryKey" />
+            <label class="form-label">Channel Key</label>
+            <input asp-for="ChannelKey" />
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div class="container-sm">
+    <h5>🧵Set callback when the content get uploaded on channel</h5>
+    <form asp-action="CallbackChannelAdded" asp-model="ManageFormModel">
+        <div class="mb-3">
+            <label class="form-label">Channel Key</label>
+            <input asp-for="ChannelKey" />
+            <label class="form-label">Callback Url</label>
+            <input asp-for="CallbackUrl" />
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
