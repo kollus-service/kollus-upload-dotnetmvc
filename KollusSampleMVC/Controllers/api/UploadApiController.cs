@@ -43,9 +43,9 @@ namespace KollusSampleMVC.Controllers.api
 
         [HttpGet]
         [Route("api/get-medialink")]
-        public ActionResult<string> GetMediaLink(string? mediaContentKey)
+        public ActionResult<string> GetMediaLink(string? mediaContentKey, string cdnType)
         {
-            string destination = KollusPlayer.getSrUrlWithJWT(mediaContentKey);
+            string destination = KollusPlayer.getSrUrlWithJWT(mediaContentKey, cdnType);
             string redirectUrl = GetRedirectUrl(destination);
             var result = new GetMediaLinkModel() { url = redirectUrl };
             string json = JsonConvert.SerializeObject(result);

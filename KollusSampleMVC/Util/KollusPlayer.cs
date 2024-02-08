@@ -56,7 +56,7 @@ namespace KollusSampleMVC.Util
             return url;
         }
 
-        public static String getSrUrlWithJWT(String mck)
+        public static String getSrUrlWithJWT(String mck, String cdnType)
         {
             Int64 exp = (Int64)DateTime.Now.AddMinutes(expiredTime).Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             var payload = JObject.FromObject(new { cuid = cuid, expt = exp });
@@ -72,7 +72,7 @@ namespace KollusSampleMVC.Util
             payload.Add("mc", mcs);
 
             String token = createToken(payload.ToString().Trim());
-            String url = String.Format("https://v.kr.kollus.com/sr?jwt={0}&custom_key={1}", token, customKey);
+            String url = String.Format("https://v.kr.kollus.com/sr?cdn={0}&jwt={1}&custom_key={2}", cdnType, token, customKey);
 
             return url;
         }
